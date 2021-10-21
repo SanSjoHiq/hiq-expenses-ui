@@ -6,7 +6,9 @@ The interface for the HIQ Expenses UI.
 
 ### Technologies
 
-React, npm
+* React
+* npm
+* Material-UI
 
 ### Setup
 
