@@ -1,5 +1,4 @@
-
-import { Expenses } from './pages/Expenses';
+import Expenses from './pages/Expenses';
 
 function App() {
   return (

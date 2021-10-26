@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
-import { FormControl, MenuItem, TextField, Button } from '@mui/material';
+import { FormControl, MenuItem, TextField, Button, Select, InputLabel, OutlinedInput } from '@mui/material';
 
 
 const expensesType = [
@@ -48,6 +48,9 @@ const useStyles = makeStyles({
         margin: '5% !important',
         width: '50%'
         
+    },
+    select: {
+        width: '50%'
     }
 })
 
@@ -58,21 +61,28 @@ export const ExpensesForm = () => {
     const handleSelectChange = (event) => {
         setExpenses(event.target.value)
     }
+
     return (
         <FormControl className={classes.form}>
-            <TextField 
-            className={classes.input}
+            <InputLabel id="select-label">Välj typ av utlägg</InputLabel>
+            <Select
+            labelId="select-label"
+            className={classes.select}
             id="outlined-select-currency"
-            select
+            select="true"
             label="Välj typ av utlägg"
             value={expenses}
-            onChange={handleSelectChange}>
+            onChange={handleSelectChange}
+            input={<OutlinedInput label="Välj typ av utlägg" />}
+            inputProps={{id: "select-option", 'data-testid': 'select-option'}}
+            >
+            
             {expensesType.map((item) => (
                 <MenuItem key={item.value} value={item.value}>
                     {item.label}
                 </MenuItem>
             ))}
-            </TextField>
+            </Select>
             <TextField 
             className={classes.input}
             required
