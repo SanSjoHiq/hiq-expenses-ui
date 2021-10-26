@@ -55,12 +55,21 @@ const useStyles = makeStyles({
 })
 
 export const ExpensesForm = () => {
-    const [expenses, setExpenses] = useState("")
+    const [selectExpenses, setSelectExpenses] = useState("")
+    const [inputPrice, setInputPrice] = useState("")
     const classes = useStyles();
 
     const handleSelectChange = (event) => {
-        setExpenses(event.target.value)
+        setSelectExpenses(event.target.value)
     }
+    const handleInputChange = (event) => {
+        setInputPrice(event.target.value)
+    }
+
+   const handleButtonSubmit = () => {
+       console.log("typ:", selectExpenses, "pris:", inputPrice)
+       
+   }
 
     return (
         <FormControl className={classes.form}>
@@ -71,7 +80,7 @@ export const ExpensesForm = () => {
             id="outlined-select-currency"
             select="true"
             label="Välj typ av utlägg"
-            value={expenses}
+            value={selectExpenses}
             onChange={handleSelectChange}
             input={<OutlinedInput label="Välj typ av utlägg" />}
             inputProps={{id: "select-option", 'data-testid': 'select-option'}}
@@ -88,8 +97,11 @@ export const ExpensesForm = () => {
             required
             id="outlined-required"
             label="Summa"
+            inputProps={{id: "input-field", 'data-testid': 'input-field'}}
+            value={inputPrice}
+            onChange={handleInputChange}
             />
-            <Button variant="contained" className={classes.button}>Lägg till</Button>
+            <Button variant="contained" className={classes.button} onClick={handleButtonSubmit}>Lägg till</Button>
 
         </FormControl>
     )

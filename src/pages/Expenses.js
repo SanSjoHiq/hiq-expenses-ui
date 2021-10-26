@@ -9,3 +9,5 @@ export const Expenses = () => {
         </>
     )
 }
+
+export default Expenses;

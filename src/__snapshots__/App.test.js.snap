@@ -86,7 +86,8 @@ exports[`should generate a snapshot for app component 1`] = `
         <input
           aria-invalid="false"
           class="MuiOutlinedInput-input MuiInputBase-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
-          id="outlined-required"
+          data-testid="input-field"
+          id="input-field"
           required=""
           type="text"
           value=""
